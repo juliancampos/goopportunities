@@ -1,6 +1,9 @@
 package router
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/juliancampos/goopportunities/config"
+)
 
 func Initialize() {
 	r := gin.Default()
@@ -10,5 +13,6 @@ func Initialize() {
 	// 		"message": "pong",
 	// 	})
 	// })
-	r.Run(":8080")
+	result := config.GetEnvValue("PORT")
+	r.Run(":" + result)
 }

@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"os"
 
 	"gorm.io/gorm"
 )
@@ -18,8 +19,12 @@ func Init() error {
 		return fmt.Errorf("error initializing sqlite: %v", err)
 	}
 
+	err = InitializeEnv()
+	if err != nil {
+		return fmt.Errorf("error initializing env: %v", err)
+	}
+
 	return nil
-	// return errors.New("error connecting to database")
 }
 
 func GetSQLite() *gorm.DB {
@@ -29,4 +34,8 @@ func GetSQLite() *gorm.DB {
 func GetLogger(p string) *Logger {
 	logger = NewLogger(p)
 	return logger
+}
+
+func GetEnvValue(key string) string {
+	return os.Getenv(key)
 }
