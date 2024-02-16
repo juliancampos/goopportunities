@@ -1,0 +1,11 @@
+POST http://localhost:8080/api/v1/opening HTTP/1.1
+content-type: application/json
+
+{
+  "role": "dev golang",
+	"Company":  "dev",
+	"Location": "MG",
+	"Remote":   true,
+	"Link":     "link.dev.com",
+	"Salary":   15000
+}
