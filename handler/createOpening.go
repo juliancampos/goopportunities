@@ -34,9 +34,4 @@ func CreateOpeningHandler(ctx *gin.Context) {
 	}
 
 	sendSuccess(ctx, "create-opening", opening)
-
-	// logger.Infof("request: %+v", request)
-	// ctx.JSON(200, gin.H{
-	// 	"message": "createOpeningHandler",
-	// })
 }
