@@ -14,3 +14,13 @@ content-type: application/json
 
 GET http://localhost:8080/api/v1/openings HTTP/1.1
 content-type: application/json
+
+###
+
+GET http://localhost:8080/api/v1/opening?id=3 HTTP/1.1
+content-type: application/json
+
+###
+
+DELETE http://localhost:8080/api/v1/opening?id=1 HTTP/1.1
+content-type: application/json

@@ -7,14 +7,14 @@ import (
 	"github.com/juliancampos/goopportunities/schemas"
 )
 
-func ListOpeningsHandler(c *gin.Context) {
+func ListOpeningsHandler(ctx *gin.Context) {
 	openings := []schemas.Opening{}
 
 	if err := db.Find(&openings).Error; err != nil {
 		logger.Errorf("error listing openings: %v", err.Error)
-		sendError(c, http.StatusInternalServerError, "error listing openings")
+		sendError(ctx, http.StatusInternalServerError, "error listing openings")
 		return
 	}
 
-	sendSuccess(c, "list-openings", openings)
+	sendSuccess(ctx, "list-openings", openings)
 }
